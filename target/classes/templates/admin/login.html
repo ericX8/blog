@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>博客管理登录</title>
+    <link rel="stylesheet" href="../../static/css/self.css" th:href="@{/css/self.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css"/>
+</head>
+<body style="background-color: #99b2ff;">
+
+<div class="m-login" style="max-width: 28em !important;margin: auto;">
+    <div class="ui container">
+        <div class="column" >
+            <h2 class="ui black image header">
+                <div class="content" style="margin-left: 5em">
+                    管理后台登录
+                </div>
+            </h2>
+            <form class="ui large form" method="post" action="#" th:action="@{/admin/login}">
+                <div class="ui stacked segment" style="background-color: #99b2ff;">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="username" placeholder="用户名">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="密码">
+                        </div>
+                    </div>
+                    <button class="ui fluid large teal submit button">登录</button>
+                </div>
+
+                <div class="ui error mini message"></div>
+                <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}"></div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+<script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+<script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+<script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+<script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.min.js"  th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<script src="../static/js/layuiself.js"  th:src="@{/js/layuiself.js}"></script>
+<script>
+    $('.ui.form').form({
+        fields: {
+            username:{
+                identifier:'username',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入用户名'
+                }]
+            },
+            password:{
+                identifier:'password',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入密码'
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>

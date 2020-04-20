@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>关于</title>
+    <link rel="icon" href="/images/avatar1.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/css/self.css" th:href="@{/css/self.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css"/>
+</head>
+<body>
+<!--导航-->
+<nav class="ui attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui secondary stackable menu">
+            <h2 class="ui teal header item">Lightning's Blog</h2>
+            <a href="#" th:href="@{/}"         class="m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
+            <a href="#" th:href="@{/types}"    class="m-item item m-mobile-hide"><i class="mini filter icon"></i>分类</a>
+            <a href="#" th:href="@{/tags}"     class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide"><i class="mini file alternate icon"></i>归档</a>
+            <a href="#" th:href="@{/about}"    class="active m-item item m-mobile-hide"><i class="mini user secret icon"></i>关于</a>
+            <!--<div class="right m-item item  m-mobile-hide">
+                <div class="ui icon input">
+                    <input type="text" placeholder="搜索...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>-->
+        </div>
+    </div>
+    <!--手机端bar-->
+    <a href="#" class="ui m-opacity-mini black mini icon button m-right-top m-mobile-show menu toggle">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<!--中间内容-->
+<div class="m-container m-padded-tb-large">
+    <div class="ui container">
+        <div class="ui center aligned basic segment">
+            <h1 class="ui center aligned header m-text-thin">关于我</h1>
+        </div>
+        <div class="ui hidden section divider"></div>
+        <div class="ui hidden section divider"></div>
+        <div class="ui attached very padded center aligned segment">
+            <h3>基本情况</h3> <i class="ui large hand point down outline icon"></i>
+           <div class="ui center aligned basic segment">
+               <p>小编也是不久才写的个人博客，技术上面也是菜鸟级别，还有很多需要学习的，往大佬们多多指教，不喜勿喷。</p>
+           </div>
+        </div>
+        <div class="ui attached very padded center aligned segment">
+            <h3>兴趣爱好</h3> <i class="ui large hand point down outline icon"></i>
+            <div class="ui center aligned basic segment">
+                <p>摄影</p>
+                <p>美食</p>
+                <p>编程</p>
+            </div>
+        </div>
+        <div class="ui attached very padded  center aligned segment">
+            <h3>技能</h3> <i class="ui large hand point down outline icon"></i>
+            <div class="ui center aligned basic segment">
+                <div class="ui mini label">java</div>
+                <div class="ui mini label">c</div>
+                <div class="ui mini label">python</div>
+                <div class="ui mini label">ps</div>
+            </div>
+        </div>
+        <div class="ui very padded attached center aligned segment">
+            <h3>交流</h3> <i class="ui large hand point down outline icon"></i>
+            <div class="ui center aligned basic segment">
+                <div class="ui horizontal list">
+                    <div class="item">
+                        <a href="#"><i class="ui pic-qq teal big qq icon"></i></a>
+                        <h4>QQ</h4>
+                    </div>
+                    <div class="item"></div>
+                    <div class="item">
+                        <a href="#"><i class="ui pic-wx green big weixin icon"></i></a>
+                        <h4>微信</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--qq二维码-->
+        <div class="ui center aligned basic stackable segment">
+            <div class="ui tell-qq flowing popup transition hidden">
+                <div class="ui tiny images" style="font-size: inherit !important;">
+                    <img src="../static/images/erweima.png" alt="" th:src="@{/images/erweima.png}">
+                </div>
+                <p style="text-align: center">QQ</p>
+
+            </div>
+        </div>
+        <!--微信二维码-->
+        <div class="ui center aligned basic stackable segment">
+            <div class="ui tell-wx flowing popup transition hidden">
+                <div class="ui tiny images" style="font-size: inherit !important;">
+                    <img src="../static/images/erweima.png" alt="" th:src="@{/images/erweima.png}">
+                </div>
+                <p style="text-align: center">WEIXIN</p>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<!--底部-->
+<footer class="ui basic segment" style="margin-top: 34em;">
+    <div class="ui container">
+        <div class="ui middle aligned basic m-opacity-mini stackable segment">
+            <span>联系:</span>
+            <span style="padding-left: 2em;"><i class="mail mini icon"></i>1204957204@qq.com</span>
+            &nbsp;<span style="padding-left: 2em;"> <i class="qq mini icon"></i>1204957204</span>
+            <span style="padding-left: 16em;">&hearts;简介:</span>
+            <span>长风破浪会有时,</span>
+            &nbsp;<span> 直挂云帆济沧海</span>
+        </div>
+        <div class="ui basic center aligned segment">
+            <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 Lightning. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script>
+    //qq
+    $('.pic-qq').popup({
+        popup:$('.tell-qq.popup'),
+        on:'mouseover',
+        position:'top center'
+
+    });
+    //weixin
+    $('.pic-wx').popup({
+        popup:$('.tell-wx.popup'),
+        on:'click',
+        position:'top center'
+
+    });
+</script>
+</body>
+</html>

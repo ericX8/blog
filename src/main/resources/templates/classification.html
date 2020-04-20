@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>分类</title>
+    <link rel="icon" href="/images/avatar1.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/css/self.css" th:href="@{/css/self.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css"/>
+</head>
+<body>
+<!--导航-->
+<nav class="ui attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui  secondary stackable menu">
+            <h2 class="ui teal header item">Lightning's Blog</h2>
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
+            <a href="#" th:href="@{/types}" class="active m-item item m-mobile-hide"><i class="mini filter icon"></i>分类</a>
+            <a href="#" th:href="@{/tags}" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide"><i class="mini file alternate icon"></i>归档</a>
+            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini user secret icon"></i>关于</a>
+            <!--<div class="right m-item item  m-mobile-hide">
+                    <div class="ui icon input">
+                        <input type="text" placeholder="首页搜索...">
+                        <i id="search" class="search icon"></i>
+                    </div>
+            </div>-->
+        </div>
+    </div>
+    <!--手机端bar-->
+    <a href="#" class="ui m-opacity-mini black mini icon button m-right-top m-mobile-show menu toggle">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-large">
+    <div class="ui stackable container">
+<!--分类-->
+        <div class="ui padded piled stackable segment">
+            <div class="ui basic center aligned segment">------&nbsp;共
+                <span th:text="${#arrays.length(types)}" style="font-size: 2em;color: orange;">14</span>
+                个&nbsp;------
+            <div id="type-color" class="ui orange basic segment">
+                <a class="ui m-margin-top basic label" target="_blank" th:each="type: ${types}" th:href="@{/types/{id}(id=${type.id})}" ><span th:text="${type.name}">红色</span>
+                    <span th:text="${#arrays.length(type.blogs)}">1</span></a>
+                <!--/*-->
+                <a class="ui m-margin-top basic label">橙色</a>
+                <a class="ui m-margin-top basic label">黄色</a>
+                <a class="ui m-margin-top basic label">橄榄绿</a>
+                <a class="ui m-margin-top basic label">纯绿</a>
+                <a class="ui m-margin-top basic label">水鸭蓝</a>
+                <a class="ui m-margin-top basic label">纯蓝</a>
+                <a class="ui m-margin-top basic label">紫罗兰</a>
+                <a class="ui m-margin-top basic label">纯紫</a>
+                <a class="ui m-margin-top basic label">粉红</a>
+                <a class="ui m-margin-top basic label">棕色</a>
+                <a class="ui m-margin-top basic label">灰色</a>
+                <a class="ui m-margin-top basic label">黑色</a>
+                <!--*/-->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--底部-->
+<footer class="ui basic segment" style="margin-top: 34em;">
+    <div class="ui container">
+        <div class="ui middle aligned basic m-opacity-mini stackable segment">
+            <span>联系:</span>
+            <span style="padding-left: 2em;"><i class="mail mini icon"></i>1204957204@qq.com</span>
+            &nbsp;<span style="padding-left: 2em;"> <i class="qq mini icon"></i>1204957204</span>
+            <span style="padding-left: 16em;">&hearts;简介:</span>
+            <span>长风破浪会有时,</span>
+            &nbsp;<span> 直挂云帆济沧海</span>
+        </div>
+        <div class="ui basic center aligned segment">
+            <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 Lightning. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+</body>
+</html>

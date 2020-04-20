@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>分类 | 新增</title>
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link rel="stylesheet" href="../../static/css/self.css" th:href="@{/css/self.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css"/>
+</head>
+<body>
+<!--导航-->
+<nav class="ui attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui secondary stackable menu">
+            <h2 class="ui teal header item">后台管理</h2>
+            <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide"><i class="mini filter icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/tags}" class="active m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+            <div class="right m-item m-mobile-hide  menu ">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image" src="https://picsum.photos/100/100?image=32">
+                        <span th:text="${session.user.nickname}"></span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item" style="text-align: center">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--手机端bar-->
+        <a href="#" class="ui m-opacity-mini black mini icon button m-right-top m-mobile-show menu toggle">
+            <i class="sidebar icon"></i>
+        </a>
+    </div>
+</nav>
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="ui right menu">
+            <a href="#" th:href="@{/admin/tags/input}" class="active teal item">发布</a>
+            <a href="#" th:href="@{/admin/tags}"  class="item">列表</a>
+        </div>
+    </div>
+</div>
+
+<!--中间内容-->
+<div class="m-container m-padded-tb-large">
+    <div class="ui container">
+        <div class="ui center aligned basic segment">
+        <form action="#" method="post" th:object="${tag}" th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}" class="ui form"  >
+            <br>
+            <br>
+            <input type="hidden" name="id" th:value="*{id}">
+                <div class="required field">
+                    <div class="ui left labeled input">
+                        <label  class="ui teal basic label">名称</label>
+                        <input type="text" name="name" placeholder="标签名称" th:value="*{name}">
+                    </div>
+                </div>
+
+            <div class="ui error message"></div>
+            <!--/*/
+            <div class="ui negative message" th:if="${#fields.hasErrors('name')}">
+            <i class="close icon"></i>
+                <div class="header">验证失败</div>
+                <p th:errors="*{name}">提交信息不符合规则</p>
+            </div>
+             /*/-->
+            <div class="ui right aligned container">
+            <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+                <button type="submit" class="ui teal submit button">提交</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+<!--底部-->
+<footer class="ui basic segment ">
+    <div class="ui container" style="margin-top: 38em;">
+        <div class="ui basic center aligned segment">
+            <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 Lightning. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+<script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+<script src="../../static/js/layuiself.js" th:src="@{/js/layuiself.js}"></script>
+<script>
+    //表单校验
+    $('.ui.form').form({
+        fields: {
+            title:{
+                identifier:'name',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入标签名称'
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>
